@@ -28,6 +28,8 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    'log' => env('APP_LOG', 'daily'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

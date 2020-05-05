@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/measure', ['uses' => '\App\Http\Controllers\Kitchen\MeasureController@get']);
+
+Route::get('/products', ['uses' => '\App\Http\Controllers\Kitchen\ProductsController@get']);
+
+Route::get('/recipes', ['uses' => '\App\Http\Controllers\Kitchen\RecipesController@get']);
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+/** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/
+Route::get('{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
+    ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
